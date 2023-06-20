@@ -5,6 +5,7 @@
 #include <cstring>
 #include "struct.h"
 #include "lab6.h"
+#include "dateLib.h"
 using namespace std;
 
 
@@ -88,17 +89,24 @@ void user_interface(bool condition, prepod** db, int db_counts) {
         cout << "Найти всех преподавателей заданной кафедры"
             << "  3" << endl;
         cout << "Найти все предметы, который ведёт заданный преподаватель"
-            << "   4" << endl;
-        //cout << "Найти всех преподавателей, у которых прошло более 15 месяцев с последнеего ИТБ на текущую дату"
-        //    << "   5" << endl;
+            << "  4" << endl;
+        cout << "Найти всех преподавателей, у которых прошло более 15 месяцев с последнеего ИТБ на текущую дату"
+            << "   5" << endl;
         cout << "Выйти из программы"
             << "   6" << endl;
         cin >> command;
+        system("pause");
         switch (command) {
+        case 5: {
+            cout << endl;
+            findPrepodsByDateITB(arr, n);
+            system("pause");
+            break;
+        }
         case 4: {
             cout << endl;
             cout << "Введите фамилию, имя и отчество преподавателя: ";
-            cin >> surname >> name;
+            cin >> surname >> name >> secondname;
             findPrepodsBySubject(arr, n, surname, name, secondname);
             system("pause");
             //cout << "Для продолжения работы программы нажмите на любую клавишу...";

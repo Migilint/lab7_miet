@@ -68,7 +68,6 @@ FILE* save_file(char db_name[], FILE* db_file, int db_counts, prepod** db) {
             db[i]->date_ITB.day, db[i]->date_ITB.month, db[i]->date_ITB.year);
     }
     cout << "Сохранение базы данных в файл 'db.txt'" << endl;
-    system("pause");
     return db_file;
 }
 

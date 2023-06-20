@@ -129,6 +129,7 @@
   <ItemGroup>
     <ClCompile Include="dbConfigLib.cpp" />
     <ClCompile Include="fileConfigLib.cpp" />
+    <ClCompile Include="dateLib.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="lab6.cpp" />
   </ItemGroup>
@@ -136,6 +137,7 @@
     <ClInclude Include="dbConfigLib.h" />
     <ClInclude Include="fileConfigLib.h" />
     <ClInclude Include="lab6.h" />
+    <ClInclude Include="dateLib.h" />
     <ClInclude Include="struct.h" />
   </ItemGroup>
   <ItemGroup>

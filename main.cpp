@@ -30,7 +30,7 @@ int main() {
     if (db_loaded) 
     {
         db = load_data_from_db(db_file, db_counts);
-        cout << db_counts << endl;
+    //   cout << time(0) << endl;
         
     } else 
     {
