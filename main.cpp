@@ -15,9 +15,8 @@ int main() {
 
     FILE* db; 
     char db_name[] = "db.txt";
-    db = fopen(db_name, "w");
+    db = open_file(db_name);
 
-    if(error_open(db)) return 0;
     if (error_close(db)) return 0;
     
 

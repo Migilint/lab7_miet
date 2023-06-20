@@ -1,3 +1,5 @@
+#define _CRT_SECURE_NO_WARNINGS
+
 #include <iostream>
 #include <string>
 #include <cstring>
@@ -23,4 +25,18 @@ int error_close(FILE* file)
 
     cout << "\n-------------Файлы успешно закрылись!-------------\n";
     return 0;
+}
+
+FILE* open_file(char db_name[]) {
+    FILE* file;
+    file = fopen(db_name, "r");
+
+    if (error_open(file)) {
+        file = fopen(db_name, "w"); fclose(file);
+        cout << "Создан новый файл";
+        file = fopen(db_name, "r");
+        return file;
+    }
+
+    return file;
 }
