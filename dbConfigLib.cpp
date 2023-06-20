@@ -11,10 +11,12 @@ using namespace std;
 prepod* create_db_line() {
     prepod* newPrepod = new prepod;
 
-    newPrepod->surname = new char[256];
-    newPrepod->name = new char[256];
+    newPrepod->fio_prepod.surname = new char[256];
+    newPrepod->fio_prepod.name = new char[256];
+    newPrepod->fio_prepod.secondname = new char[256];
     newPrepod->department = new char[256];
     newPrepod->subject = new char[256];
+    newPrepod->date_ITB.month = new char[256];
 
     return newPrepod;
 }
@@ -35,7 +37,9 @@ prepod** load_data_from_db(FILE* file, int &counts) {
     cout << "Создана успешно база данных" << endl;
     for (int i = 0; i < counts; i++) {
         prepod* db_line = db[i];
-        fscanf(file, "%s %s %s %s", db[i]->surname, db[i]->name, db[i]->department, db[i]->subject);
+        fscanf(file, "%s %s %s %s %s %d %s %d", db[i]->fio_prepod.surname, db[i]->fio_prepod.name, db[i]->fio_prepod.secondname,
+            db[i]->department, db[i]->subject,
+            &(db[i]->date_ITB.day), db[i]->date_ITB.month, &(db[i]->date_ITB.year));
     }
     cout << "Загрузка данных в базу данных была успешна" << endl;
     cout << endl;
@@ -47,10 +51,12 @@ prepod** load_data_from_db(FILE* file, int &counts) {
 void clear_db(prepod** db, int counts) {
 
     for (int i = 0; i < counts; i++) {
-        delete[] db[i]->surname;
-        delete[] db[i]->name;
+        delete[] db[i]->fio_prepod.surname;
+        delete[] db[i]->fio_prepod.name;
+        delete[] db[i]->fio_prepod.secondname;
         delete[] db[i]->department;
         delete[] db[i]->subject;
+        delete[] db[i]->date_ITB.month;
         delete db[i];
     }
     delete[] db;
@@ -66,6 +72,7 @@ void user_interface(bool condition, prepod** db, int db_counts) {
 
     char* surname = new char[256];
     char* name = new char[256];
+    char* secondname = new char[256];
     char* department = new char[256];
 
     int n = db_counts;
@@ -82,15 +89,17 @@ void user_interface(bool condition, prepod** db, int db_counts) {
             << "  3" << endl;
         cout << "Найти все предметы, который ведёт заданный преподаватель"
             << "   4" << endl;
+        //cout << "Найти всех преподавателей, у которых прошло более 15 месяцев с последнеего ИТБ на текущую дату"
+        //    << "   5" << endl;
         cout << "Выйти из программы"
-            << "   5" << endl;
+            << "   6" << endl;
         cin >> command;
         switch (command) {
         case 4: {
             cout << endl;
-            cout << "Введите фамилию и имя преподавателя: ";
+            cout << "Введите фамилию, имя и отчество преподавателя: ";
             cin >> surname >> name;
-            findPrepodsBySubject(arr, n, surname, name);
+            findPrepodsBySubject(arr, n, surname, name, secondname);
             system("pause");
             //cout << "Для продолжения работы программы нажмите на любую клавишу...";
             //cin.get();
@@ -123,12 +132,13 @@ void user_interface(bool condition, prepod** db, int db_counts) {
             //cin.get();
             break;
         }
-        case 5:
+        case 6:
             condition = false;
         }
     }
 
     delete[] surname;
     delete[] name;
+    delete[] secondname;
     delete[] department;
 }

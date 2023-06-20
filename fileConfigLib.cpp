@@ -62,7 +62,10 @@ FILE* save_file(char db_name[], FILE* db_file, int db_counts, prepod** db) {
     db_file = fopen(db_name, "w+");
     fprintf(db_file, "%d\n", db_counts);
     for (int i = 0; i < db_counts; i++) {
-        fprintf(db_file, "%s %s %s %s\n", db[i]->name, db[i]->surname, db[i]->department, db[i]->subject);
+        fprintf(db_file, "%s %s %s %s %s %i %s %i\n", 
+            db[i]->fio_prepod.surname, db[i]->fio_prepod.name, db[i]->fio_prepod.secondname, 
+            db[i]->department, db[i]->subject,
+            db[i]->date_ITB.day, db[i]->date_ITB.month, db[i]->date_ITB.year);
     }
     cout << "Сохранение базы данных в файл 'db.txt'" << endl;
     system("pause");
