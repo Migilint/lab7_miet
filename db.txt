@@ -1,2 +1,3 @@
-1
+2
 Kalinovskiy Vladimir MPSU Math
+Stepanov Daniil MPSU Informatics

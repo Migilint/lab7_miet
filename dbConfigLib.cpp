@@ -7,6 +7,7 @@
 #include "lab6.h"
 using namespace std;
 
+
 prepod* create_db_line() {
     prepod* newPrepod = new prepod;
 
@@ -26,8 +27,8 @@ prepod** create_db(int n) {
     return db;
 }
 
-prepod** load_data_from_db(FILE* file) {
-    int counts;
+prepod** load_data_from_db(FILE* file, int &counts) {
+
     fscanf(file, "%d", &counts);
 
     prepod** db = create_db(counts);
@@ -43,9 +44,9 @@ prepod** load_data_from_db(FILE* file) {
     return db;
 }
 
-void clear_db(prepod** db) {
+void clear_db(prepod** db, int counts) {
 
-    for (int i = 0; i < ((db + 1) - db); i++) {
+    for (int i = 0; i < counts; i++) {
         delete[] db[i]->surname;
         delete[] db[i]->name;
         delete[] db[i]->department;
@@ -55,14 +56,19 @@ void clear_db(prepod** db) {
     delete[] db;
 }
 
-void user_interface(bool condition, prepod** db) {
+void user_interface(bool condition, prepod** db, int counts) {
+    
+    system("pause");
+    cout << "Для продолжения работы программы нажмите на любую клавишу...";
+    cin.get();
+
     int command;
 
     char* surname = new char[256];
     char* name = new char[256];
     char* department = new char[256];
 
-    int n = (db + 1) - db;
+    int n = counts;
     prepod** arr = db;
 
     while (condition) {

@@ -1,3 +1,2 @@
-﻿  dbConfigLib.cpp
-E:\lab7\ConsoleApplication1\ConsoleApplication1\dbConfigLib.cpp(65,11): warning C4244: инициализация: преобразование "__int64" в "int", возможна потеря данных
+﻿  main.cpp
   ConsoleApplication1.vcxproj -> E:\lab7\ConsoleApplication1\x64\Debug\ConsoleApplication1.exe

@@ -15,16 +15,20 @@ int main() {
     setlocale(LC_ALL, "Russian");
 
     FILE* db_file; 
+    bool loaded_db;
     char db_name[] = "db.txt";
-    db_file = open_file(db_name);
+    int counts;
 
-    prepod** db = load_data_from_db(db_file);
-    cout << (db + 1) - db << endl;
+    db_file = open_file(db_name, loaded_db);
+    cout << loaded_db << endl;
 
-    user_interface(true, db);
+    prepod** db = load_data_from_db(db_file, counts);
+    cout << counts << endl;
+
+    user_interface(true, db, counts);
 
     if (error_close(db_file)) return 0;
-    clear_db(db);
+    clear_db(db, counts);
 
     return 0;
 }

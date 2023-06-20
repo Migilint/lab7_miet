@@ -27,7 +27,7 @@ int error_close(FILE* file)
     return 0;
 }
 
-FILE* open_file(char db_name[]) {
+FILE* open_file(char db_name[], bool &loaded_db) {
     FILE* file;
     file = fopen(db_name, "r");
 
@@ -35,9 +35,10 @@ FILE* open_file(char db_name[]) {
         file = fopen(db_name, "w"); fclose(file);
         cout << "Создан новый файл";
         file = fopen(db_name, "r");
+        loaded_db = false;
         return file;
     }
-
+    loaded_db = true;
     return file;
 }
 
