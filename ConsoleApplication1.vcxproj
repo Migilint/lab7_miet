@@ -127,12 +127,17 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="fileConfigLib.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="lab6.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="fileConfigLib.h" />
     <ClInclude Include="lab6.h" />
     <ClInclude Include="struct.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="main.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -21,6 +21,9 @@
     <ClCompile Include="lab6.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
+    <ClCompile Include="fileConfigLib.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="lab6.h">
@@ -29,5 +32,13 @@
     <ClInclude Include="struct.h">
       <Filter>Исходные файлы</Filter>
     </ClInclude>
+    <ClInclude Include="fileConfigLib.h">
+      <Filter>Исходные файлы</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="main.txt">
+      <Filter>Исходные файлы</Filter>
+    </Text>
   </ItemGroup>
 </Project>
