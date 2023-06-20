@@ -20,6 +20,9 @@ int main() {
 
     prepod** db = load_data_from_db(db_file);
     cout << (db + 1) - db << endl;
+
+    user_interface(true, db);
+
     if (error_close(db_file)) return 0;
     clear_db(db);
 
