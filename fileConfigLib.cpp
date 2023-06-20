@@ -40,3 +40,4 @@ FILE* open_file(char db_name[]) {
 
     return file;
 }
+

@@ -24,6 +24,9 @@
     <ClCompile Include="fileConfigLib.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
+    <ClCompile Include="dbConfigLib.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="lab6.h">
@@ -33,6 +36,9 @@
       <Filter>Исходные файлы</Filter>
     </ClInclude>
     <ClInclude Include="fileConfigLib.h">
+      <Filter>Исходные файлы</Filter>
+    </ClInclude>
+    <ClInclude Include="dbConfigLib.h">
       <Filter>Исходные файлы</Filter>
     </ClInclude>
   </ItemGroup>
