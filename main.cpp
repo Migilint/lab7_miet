@@ -14,21 +14,39 @@ int main() {
 
     setlocale(LC_ALL, "Russian");
 
+    prepod** db;
     FILE* db_file; 
-    bool loaded_db;
+    bool db_loaded;
     char db_name[] = "db.txt";
-    int counts;
+    int db_counts;
 
-    db_file = open_file(db_name, loaded_db);
-    cout << loaded_db << endl;
+    if (error_open_zero_file(db_name)) remove(db_name);
+    db_file = open_file(db_name, db_loaded);
+    //cout << db_loaded << endl;
+    //db_loaded = true;
 
-    prepod** db = load_data_from_db(db_file, counts);
-    cout << counts << endl;
+    if (db_loaded) 
+    {
+        db = load_data_from_db(db_file, db_counts);
+        cout << db_counts << endl;
+        
+    } else 
+    {
 
-    user_interface(true, db, counts);
+        cout << "Введите количество преподавателей: ";
+        cin >> db_counts;
 
+        db = new prepod * [db_counts];
+        for (int i = 0; i < db_counts; i++) {
+            cout << "Преподаватель " << db_counts << ":" << endl;
+            db[i] = createPrepod();
+        }
+    }
+
+    user_interface(true, db, db_counts);
+    db_file = save_file(db_name, db_file, db_counts, db);
     if (error_close(db_file)) return 0;
-    clear_db(db, counts);
+    clear_db(db, db_counts);
 
     return 0;
 }

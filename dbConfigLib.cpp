@@ -56,11 +56,11 @@ void clear_db(prepod** db, int counts) {
     delete[] db;
 }
 
-void user_interface(bool condition, prepod** db, int counts) {
+void user_interface(bool condition, prepod** db, int db_counts) {
     
     system("pause");
-    cout << "Для продолжения работы программы нажмите на любую клавишу...";
-    cin.get();
+    //cout << "Для продолжения работы программы нажмите на любую клавишу...";
+    //cin.get();
 
     int command;
 
@@ -68,7 +68,7 @@ void user_interface(bool condition, prepod** db, int counts) {
     char* name = new char[256];
     char* department = new char[256];
 
-    int n = counts;
+    int n = db_counts;
     prepod** arr = db;
 
     while (condition) {
@@ -92,16 +92,16 @@ void user_interface(bool condition, prepod** db, int counts) {
             cin >> surname >> name;
             findPrepodsBySubject(arr, n, surname, name);
             system("pause");
-            cout << "Для продолжения работы программы нажмите на любую клавишу...";
-            cin.get();
+            //cout << "Для продолжения работы программы нажмите на любую клавишу...";
+            //cin.get();
             break;
         }
         case 2: {
             cout << endl;
             printAllPrepods(arr, n);
             system("pause");
-            cout << "Для продолжения работы программы нажмите на любую клавишу...";
-            cin.get();
+            //cout << "Для продолжения работы программы нажмите на любую клавишу...";
+            //cin.get();
             break;
         }
         case 3: {
@@ -110,8 +110,8 @@ void user_interface(bool condition, prepod** db, int counts) {
             cin >> department;
             findPrepodsByDepartment(arr, n, department);
             system("pause");
-            cout << "Для продолжения работы программы нажмите на любую клавишу...";
-            cin.get();
+            //cout << "Для продолжения работы программы нажмите на любую клавишу...";
+            //cin.get();
             break;
         }
         case 1: {
@@ -119,8 +119,8 @@ void user_interface(bool condition, prepod** db, int counts) {
             arr = addPrepod(arr, n);
             printAllPrepods(arr, n);
             system("pause");
-            cout << "Для продолжения работы программы нажмите на любую клавишу...";
-            cin.get();
+            //cout << "Для продолжения работы программы нажмите на любую клавишу...";
+            //cin.get();
             break;
         }
         case 5:
